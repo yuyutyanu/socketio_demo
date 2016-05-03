@@ -14,6 +14,7 @@
 </div>
 
   <form id="myForm">
+    <input type="text" id="name">
     <input type="text" id="msg">
     <input type="submit" value="send!">
   </form>
@@ -32,15 +33,14 @@
     var socket = io.connect();
     $('#myForm').submit(function(e){
       e.preventDefault();
-      socket.emit('emit_from_client',$('#msg').val());
+      socket.json.emit('emit_from_client',{
+        name: $('#name').val(),
+        msg: $('#msg').val()
+      });
       $('#msg').val('').focus;
     });
     socket.on('emit_from_server',function(data){
-      //var myDate = new Date();
-      //var myMsg;
-      //myMsg = myDate.getHours()+':';
-      //myMsg+= myDate.getMinutes()+':';
-      //myMsg+= myDate.getSeconds();
+
       $('#logs').append($('<li>').text(data));
     });
   });

@@ -26,15 +26,11 @@ function handler(req,res){
   break;
  }
 }
-//var myMsg;
-//var myDate = new Date();
-//myMsg = myDate.getHours()+'時';
-//myMsg+= myDate.getMinutes()+'分';
-//myMsg+= myDate.getseconds()+'秒';
+
 io.sockets.on('connection',function(socket){
   socket.on('emit_from_client',function(data){
-  if(data != ''){
-    io.sockets.emit('emit_from_server',' anonymous:' + data);
+  if(data.name != ''){
+    io.sockets.emit('emit_from_server',data.name + ' : ' + data.msg);
   }
   });
 });
