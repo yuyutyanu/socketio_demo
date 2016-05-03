@@ -1,0 +1,45 @@
+body
+{
+  text-align: center;
+}
+
+from
+{
+
+}
+#logs
+{
+  width:80%;
+  list-style-type: none;
+  text-align: left;
+}
+
+.sidebar
+{
+    height:450px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:10px;
+    border-top: solid 2px;
+    border-left: solid 1px;
+    border-bottom: solid 2px;
+    border-right: solid 1px;
+    width:10%;
+    box-shadow: 10px 10px 10px;
+}
+
+.ul_background
+{
+  display:inline-block;
+  margin-top:10px;
+  margin-left:1%;
+  margin-bottom:10px;
+  border-top: solid 2px;
+  border-left: solid 1px;
+  border-bottom: solid 2px;
+  border-right: solid 1px;
+  height:450px;
+  width:80%;
+  overflow: scroll;
+  box-shadow: 10px 10px 10px;
+}

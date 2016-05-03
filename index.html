@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Socket.IO_demo</title>
+	<link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+<body>
+
+  <h1>chat demo</h1>
+
+
+</div>
+
+  <form id="myForm">
+    <input type="text" id="msg">
+    <input type="submit" value="send!">
+  </form>
+
+
+  <div class ="sidebar">
+  sidebar desu
+  </div>
+
+  <div class="ul_background">
+    <ul id="logs"></ul>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  $(function(){
+    var socket = io.connect();
+    $('#myForm').submit(function(e){
+      e.preventDefault();
+      socket.emit('emit_from_client',$('#msg').val());
+      $('#msg').val('').focus;
+    });
+    socket.on('emit_from_server',function(data){
+      //var myDate = new Date();
+      //var myMsg;
+      //myMsg = myDate.getHours()+':';
+      //myMsg+= myDate.getMinutes()+':';
+      //myMsg+= myDate.getSeconds();
+      $('#logs').append($('<li>').text(data));
+    });
+  });
+
+  </script>
+</body>
+</html>
